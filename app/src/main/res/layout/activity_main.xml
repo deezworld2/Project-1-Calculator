@@ -203,7 +203,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="30sp" />
+        tools:textSize="32sp" />
 
     <Button
         android:id="@+id/sevenButton"

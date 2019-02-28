@@ -137,19 +137,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void addClicked(View v){
     TextView t = findViewById(R.id.outputView);
-    TextView mem = findViewById(R.id.testView);
-
     opPerformed = true;
     if (operators.empty()){
         operators.push("+");
         memory = temp;
         t.setText("0");
-        if (String.valueOf(memory).endsWith(".0"))
-        {
-            mem.setText(String.valueOf((int) memory));
-        }else{
-            mem.setText(String.valueOf(memory));
-        }
     }else{
         if (operators.peek() == "+")
         {
@@ -175,11 +167,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (operators.peek() == "/")
         {
-            if (temp == 0.0){
-                t.setText("Divide by 0 error");
-            }else{
-                temp = memory/temp;
-            }
+            temp = memory/temp;
             operators.pop();
             if (String.valueOf(temp).endsWith(".0")){
                 t.setText(String.valueOf((int) temp));
@@ -203,19 +191,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void subClicked(View v){
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         opPerformed = true;
         if (operators.empty()){
             operators.push("-");
             memory = temp;
             t.setText("0");
-            if (String.valueOf(memory).endsWith(".0"))
-            {
-                mem.setText(String.valueOf((int) memory));
-            }else{
-                mem.setText(String.valueOf(memory));
-            }        }else{
+        }else{
             if (operators.peek() == "+")
             {
                 temp = memory + temp;
@@ -240,11 +222,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (operators.peek() == "/")
             {
-                if (temp == 0.0){
-                    t.setText("Divide by 0 error");
-                }else{
-                    temp = memory/temp;
-                }
+                temp = memory/temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -268,19 +246,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void divClicked(View v){
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         opPerformed = true;
         if (operators.empty()){
             operators.push("/");
             memory = temp;
             t.setText("0");
-            if (String.valueOf(memory).endsWith(".0"))
-            {
-                mem.setText(String.valueOf((int) memory));
-            }else{
-                mem.setText(String.valueOf(memory));
-            }
         }else{
             if (operators.peek() == "+")
             {
@@ -306,11 +277,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (operators.peek() == "/")
             {
-                if (temp == 0.0){
-                    t.setText("Divide by 0 error");
-                }else{
-                    temp = memory/temp;
-                }
+                temp = memory/temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -334,19 +301,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void multiClicked(View v){
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         opPerformed = true;
         if (operators.empty()){
             operators.push("x");
             memory = temp;
             t.setText("0");
-            if (String.valueOf(memory).endsWith(".0"))
-            {
-                mem.setText(String.valueOf((int) memory));
-            }else{
-                mem.setText(String.valueOf(memory));
-            }
         }else{
             if (operators.peek() == "+")
             {
@@ -372,11 +332,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (operators.peek() == "/")
             {
-                if (temp == 0.0){
-                    t.setText("Divide by 0 error");
-                }else{
-                    temp = memory/temp;
-                }
+                temp = memory/temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -400,20 +356,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void percentClicked(View v) {
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         double percent = 0.0;
         percent = temp/100.0;
 
         if (operators.empty()) {
             t.setText("0");
-            if (String.valueOf(memory).endsWith(".0") && memory != 0.0) {
-                mem.setText(String.valueOf((int) memory));
-            } else if (memory == 0.0) {
-                mem.setText("");
-            } else {
-                mem.setText(String.valueOf(memory));
-            }
         } else {
             if (operators.peek() == "+") {
                 temp = memory + (memory * percent);
@@ -434,11 +382,7 @@ public class MainActivity extends AppCompatActivity {
                     t.setText(String.valueOf(temp));
                 }
             } else if (operators.peek() == "/") {
-                if (temp == 0.0) {
-                    t.setText("Divide by 0 error");
-                } else {
-                    temp = memory / percent;
-                }
+                temp = memory/temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")) {
                     t.setText(String.valueOf((int) temp));
@@ -480,18 +424,15 @@ public class MainActivity extends AppCompatActivity {
     }
     public void clearClicked(View v){
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         memory = 0.0;
         temp = 0.0;
         operators.clear();
         t.setText("0");
-        mem.setText("");
 
     }
     public void equalsClicked(View v){
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         opPerformed = true;
 
@@ -528,11 +469,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (operators.peek() == "/")
             {
-                if (temp == 0.0){
-                    t.setText("Divide by 0 error");
-                }else{
-                    temp = memory/temp;
-                }
+                temp = memory/temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -552,14 +489,12 @@ public class MainActivity extends AppCompatActivity {
                     t.setText(String.valueOf(temp));
                 }
             }
-            mem.setText("");
         }
 
     }
 
     public void plusMinusClicked(View v){
         TextView t = findViewById(R.id.outputView);
-        TextView mem = findViewById(R.id.testView);
 
         if (String.valueOf(t.getText()).contains("-"))
         {
