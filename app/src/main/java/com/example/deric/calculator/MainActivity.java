@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
         if (operators.peek() == "+")
         {
             temp = memory + temp;
+            memory = temp;
             operators.pop();
             if (String.valueOf(temp).endsWith(".0")){
                 t.setText(String.valueOf((int) temp));
@@ -157,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
         else if (operators.peek() == "-")
         {
             temp = memory - temp;
+            memory = temp;
             operators.pop();
             if (String.valueOf(temp).endsWith(".0")){
                 t.setText(String.valueOf((int) temp));
@@ -168,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         else if (operators.peek() == "/")
         {
             temp = memory/temp;
+            memory = temp;
             operators.pop();
             if (String.valueOf(temp).endsWith(".0")){
                 t.setText(String.valueOf((int) temp));
@@ -179,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
         else if (operators.peek() == "x")
         {
             temp = memory*temp;
+            memory = temp;
             operators.pop();
             if (String.valueOf(temp).endsWith(".0")){
                 t.setText(String.valueOf((int) temp));
@@ -201,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
             if (operators.peek() == "+")
             {
                 temp = memory + temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -212,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "-")
             {
                 temp = memory - temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -223,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "/")
             {
                 temp = memory/temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -234,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "x")
             {
                 temp = memory*temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -256,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
             if (operators.peek() == "+")
             {
                 temp = memory + temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -267,6 +276,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "-")
             {
                 temp = memory - temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -278,6 +288,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "/")
             {
                 temp = memory/temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -289,6 +300,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "x")
             {
                 temp = memory*temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -311,6 +323,7 @@ public class MainActivity extends AppCompatActivity {
             if (operators.peek() == "+")
             {
                 temp = memory + temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -322,6 +335,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "-")
             {
                 temp = memory - temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -333,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "/")
             {
                 temp = memory/temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -344,6 +359,7 @@ public class MainActivity extends AppCompatActivity {
             else if (operators.peek() == "x")
             {
                 temp = memory*temp;
+                memory = temp;
                 operators.pop();
                 if (String.valueOf(temp).endsWith(".0")){
                     t.setText(String.valueOf((int) temp));
@@ -362,6 +378,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (operators.empty()) {
             t.setText("0");
+            temp = 0.0;
         } else {
             if (operators.peek() == "+") {
                 temp = memory + (memory * percent);
@@ -499,9 +516,13 @@ public class MainActivity extends AppCompatActivity {
         if (String.valueOf(t.getText()).contains("-"))
         {
             t.setText(String.valueOf(t.getText()).substring(1));
+            temp = Double.valueOf(String.valueOf(t.getText()));
         }else{
-            String reverse = "-" + String.valueOf(t.getText());
-            t.setText(String.valueOf(reverse));
+            String negative = "";
+            double reverse = -1 * Double.valueOf(String.valueOf(t.getText()));
+            negative = String.valueOf(reverse);
+            t.setText(String.valueOf(negative));
+            temp = reverse;
         }
     }
 }
